@@ -4,22 +4,26 @@ import tensorflow as tf
 
 
 def trainNetwork(model, neurons_in_input_layer, epochs_per_file, overlap):
+    column_values = 0
+    column_desired = 1
+    delimiter = ';'
+
     fileCount = 0
     for _ in os.listdir(os.fsencode('Checkpoints')):
         fileCount += 1
 
     for file in os.listdir(os.fsencode('Data')):
-        filename = "Data\\" + os.fsdecode(file)
+        filename = "NeuralNetwork\\Data\\" + os.fsdecode(file)
         data = []
         desired = []
         d = []
         with open(filename) as csv_file:
-            content = csv.reader(csv_file, delimiter=',')
+            content = csv.reader(csv_file, delimiter=delimiter)
 
             for row in content:
-                d.append(row[1])
-                if row[1] != '':
-                    des = int(row[2])
+                d.append(row[column_values])
+                if row[column_desired] != '':
+                    des = int(row[column_desired])
                     if des == 0:
                         desired.append([1, 0, 0])
                     elif des == 1:

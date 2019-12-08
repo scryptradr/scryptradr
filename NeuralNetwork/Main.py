@@ -1,13 +1,13 @@
 import os
 
-from Evaluate import evaluate
-from Setup import setupNetwork
-from Train import trainNetwork
-from Load import loadNetwork
+from NeuralNetwork.Evaluate import evaluate
+from NeuralNetwork.Setup import setupNetwork
+from NeuralNetwork.Train import trainNetwork
+from NeuralNetwork.Load import loadNetwork
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 neurons_in_input_layer = 900
-difference_per_layer = 100
+difference_per_layer = 50
 neurons_in_output_layer = 3
 epochs_per_file = 100
 overlap = 0
