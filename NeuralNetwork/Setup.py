@@ -1,7 +1,7 @@
 import tensorflow as tf
 
 
-def setupNetwork(neurons_in_input_layer, difference_per_layer, neurons_in_output_layer, attributes, compiler):
+def setupNetwork(neurons_in_input_layer, start_at, difference_per_layer, operation, max_hidden_layers, neurons_in_output_layer, attributes, compiler):
     # Add input layer
     model = tf.keras.models.Sequential()
     model.add(tf.keras.layers.Dense(
@@ -15,8 +15,8 @@ def setupNetwork(neurons_in_input_layer, difference_per_layer, neurons_in_output
 
     # Add hidden layers
     counter = 1
-    current = neurons_in_input_layer
-    while current > 0:
+    current = start_at
+    while current > 0 and max_hidden_layers > 0:
         model.add(tf.keras.layers.Dense(
             name='Hidden_Layer' + str(counter),
             units=current,
@@ -25,7 +25,13 @@ def setupNetwork(neurons_in_input_layer, difference_per_layer, neurons_in_output
             bias_initializer=attributes[1][2],
             activation=attributes[1][0])
         )
-        current -= difference_per_layer
+        if operation == 'add':
+            current += difference_per_layer
+        elif operation == 'sub':
+            current -= difference_per_layer
+        elif operation == 'mul':
+            current *= difference_per_layer
+        max_hidden_layers -= 1
         counter += 1
 
     # Add output layer
