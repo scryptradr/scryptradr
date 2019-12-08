@@ -6,7 +6,7 @@ def evaluate(model, class_names):
     test = []
     example = []
     for i in range(0, 900):
-        example.append(i * 2)
+        example.append(1)
     test.append(example)
 
     predictions = model.predict(test)

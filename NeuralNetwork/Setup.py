@@ -1,7 +1,12 @@
 import tensorflow as tf
 
 
-def setupNetwork(neurons_in_input_layer, start_at, difference_per_layer, operation, max_hidden_layers, neurons_in_output_layer, attributes, compiler):
+def setupNetwork(neurons_in_input_layer, hidden_layer, neurons_in_output_layer, attributes, compiler):
+    start_at = hidden_layer[0]
+    operation = hidden_layer[1]
+    difference_per_layer = hidden_layer[2]
+    max_hidden_layers = hidden_layer[3]
+
     # Add input layer
     model = tf.keras.models.Sequential()
     model.add(tf.keras.layers.Dense(
