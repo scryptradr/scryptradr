@@ -11,11 +11,11 @@ os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
 neurons_in_input_layer = 900
 # ----------------- Hidden ---------------- #
 # [0] starting_at || [1] operation (add, sub, mul) || [2] difference_per_layer || [3] max_number_of_layers
-hidden_layer = [100, 'add', 10, 100]
+hidden_layer = [900, 'sub', 100, 10]
 # ---------------- Output ----------------- #
 neurons_in_output_layer = 3
 # ---------------- General ---------------- #
-epochs_per_file = 100
+epochs_per_file = 60
 overlap = 0
 # ---------------- Options ---------------- #
 class_names = ['Long', 'Hodl', 'Short']
@@ -29,9 +29,9 @@ compiler = ['Adadelta', 'mean_absolute_error']
 
 # -------------------------------------------------------------------------------------------------------------------- #
 
-#model = loadNetwork('Checkpoints\\Save-98.h5')
+model = loadNetwork('Checkpoints\\Save-148.h5')
 
-model = setupNetwork(neurons_in_input_layer, hidden_layer, neurons_in_output_layer, attributes, compiler)
+#model = setupNetwork(neurons_in_input_layer, hidden_layer, neurons_in_output_layer, attributes, compiler)
 model = trainNetwork(model, neurons_in_input_layer, epochs_per_file, overlap)
 
 evaluate(model, class_names)
