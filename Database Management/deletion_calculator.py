@@ -12,8 +12,8 @@ while current_value > goal_value:
     # x is 4 on second iteration: every 4th value in table is deleted
     # this way after every iteration current_value (dataset value) gets closer to goal_value
     current_value = current_value - (1 / index_value) * current_value
-    # calculating dataset value after deletion
+    # calculating dataset size after deletion
     current_value = math.ceil(current_value)
-    # casting dataset size to int (there is no floating point dataset sizes)
+    # getting next int (no floating point dataset sizes)
     print("To get to", current_value, "input", index_value)
     # final output after every iteration
