@@ -1,9 +1,9 @@
 import os
 
-from NeuralNetwork.Evaluate import evaluate
-from NeuralNetwork.Setup import setupNetwork
-from NeuralNetwork.Train import trainNetwork
-from NeuralNetwork.Load import loadNetwork
+from Neural_Network.Evaluate import evaluate
+from Neural_Network.Setup import setupNetwork
+from Neural_Network.Train import trainNetwork
+from Neural_Network.Load import loadNetwork
 
 
 os.environ['TF_CPP_MIN_LOG_LEVEL'] = '2'
