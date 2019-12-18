@@ -1,2 +1,2 @@
 # Scryptradr
-A neural-network based Bitmex trading bot.
+A neural-network based Bitmex trading bot
