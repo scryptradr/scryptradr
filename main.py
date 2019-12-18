@@ -1,5 +1,5 @@
 import Database_Management as dm
-import Neural_Network
+import NeuralNetwork
 import Engine.Engine
 
 TRAIN = True
