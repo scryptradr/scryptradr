@@ -37,4 +37,3 @@ model = setupNetwork(neurons_in_input_layer, hidden_layer, neurons_in_output_lay
 # model = trainNetwork(model, neurons_in_input_layer, epochs_per_file, overlap)
 
 # evaluate(model, class_names)
-
