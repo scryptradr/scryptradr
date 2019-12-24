@@ -35,7 +35,8 @@ def trainNetwork(model, neurons_in_input_layer, epochs_per_file, overlap):
                     for i in range(0, neurons_in_input_layer):
                         value = (data[i] - firstValue) * 100 / firstValue
                         tmpTrainingSets.append(value)
-                        tmpDesiredValues.append(sig(data[i + (neurons_in_input_layer - overlap)]))
+                        desiredValue = (data[i + (neurons_in_input_layer - overlap)] - firstValue) * 100 / firstValue
+                        tmpDesiredValues.append(sig(desiredValue))
 
                     trainingSets.append(tmpTrainingSets)
                     desiredValues.append(tmpDesiredValues)
